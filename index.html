@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Big Brother Simulator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🏠 MY BIG BROTHER SIMULATOR</h1>
+    <p>Create your cast. Choose twists. Simulate your season.</p>
+</header>
+
+<main>
+
+    <!-- CONTROLS -->
+
+    <section class="panel">
+
+        <h2>Season Controls</h2>
+
+        <div class="button-row">
+
+            <button onclick="startNewSeason()">
+                Start New Season
+            </button>
+
+            <button onclick="saveGame()">
+                Save Season
+            </button>
+
+            <button onclick="loadGame()">
+                Load Season
+            </button>
+
+            <button class="danger" onclick="resetGame()">
+                Reset Everything
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAST CREATOR -->
+
+    <section class="panel">
+
+        <h2>Create Your Cast</h2>
+
+        <div class="cast-form">
+
+            <input
+                type="text"
+                id="nameInput"
+                placeholder="Houseguest Name"
+            >
+
+            <input
+                type="text"
+                id="imageInput"
+                placeholder="Image URL (optional)"
+            >
+
+            <button onclick="addHouseguest()">
+                Add Houseguest
+            </button>
+
+        </div>
+
+        <div id="castGrid" class="cast-grid"></div>
+
+    </section>
+
+
+    <!-- TWISTS -->
+
+    <section class="panel">
+
+        <h2>Choose Your Twists</h2>
+
+        <div class="twist-options">
+
+            <label>
+                <input type="checkbox" value="Battle Back">
+                Battle Back
+            </label>
+
+            <label>
+                <input type="checkbox" value="Secret Power">
+                Secret Power
+            </label>
+
+            <label>
+                <input type="checkbox" value="Double Eviction">
+                Double Eviction
+            </label>
+
+            <label>
+                <input type="checkbox" value="Hidden Immunity">
+                Hidden Immunity
+            </label>
+
+            <label>
+                <input type="checkbox" value="Teams">
+                Teams Twist
+            </label>
+
+            <label>
+                <input type="checkbox" value="Roommates">
+                Roommates Twist
+            </label>
+
+        </div>
+
+        <button onclick="saveTwists()">
+            Activate Selected Twists
+        </button>
+
+        <div id="activeTwists"></div>
+
+    </section>
+
+
+    <!-- WEEK SIMULATOR -->
+
+    <section class="panel simulator">
+
+        <h2 id="weekTitle">Week 1</h2>
+
+        <div class="game-status">
+
+            <p>
+                <strong>HOH:</strong>
+                <span id="hohDisplay">None</span>
+            </p>
+
+            <p>
+                <strong>Nominees:</strong>
+                <span id="nomineesDisplay">None</span>
+            </p>
+
+            <p>
+                <strong>POV Winner:</strong>
+                <span id="povDisplay">None</span>
+            </p>
+
+        </div>
+
+
+        <div class="game-buttons">
+
+            <button onclick="runHOH()">
+                🏆 Run HOH Competition
+            </button>
+
+            <button onclick="makeNominations()">
+                📋 Make Nominations
+            </button>
+
+            <button onclick="runPOV()">
+                🥇 Run POV Competition
+            </button>
+
+            <button onclick="usePOV()">
+                🦸 Use POV
+            </button>
+
+            <button onclick="runEviction()">
+                🚪 Run Eviction
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- EVENT LOG -->
+
+    <section class="panel">
+
+        <h2>Season Events</h2>
+
+        <div id="eventLog" class="event-log">
+
+            <p>Your Big Brother season is ready to begin!</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOUSEGUEST STATUS -->
+
+    <section class="panel">
+
+        <h2>Houseguests Still in the House</h2>
+
+        <div id="remainingPlayers"></div>
+
+    </section>
+
+
+    <!-- JURY -->
+
+    <section class="panel">
+
+        <h2>Evicted Houseguests</h2>
+
+        <div id="evictedPlayers"></div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        My Custom Big Brother Simulator
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
